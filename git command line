@@ -4,3 +4,40 @@
   502  git config --global --list
   503  git config --global --get user.name
 #######################
+#lets start with some files and folder and understadn git workflow 
+506  mkdir projectsoc
+  507  cd projectsoc/
+  508  touch DS_Store
+  509  touch auth
+  510  touch secret
+  511  touch calc.py
+  512  echo "started with calcy project" > calc.py
+  513  cat calc.py
+  514  ls
+  515  git status
+####to intialized the folder which will managed by git 
+git init
+git status
+###this will create a .git directory inside your project folder if you delete the git folder
+rm -rf .git
+$ git status
+fatal: not a git repository (or any of the parent directories): .git
+
+##lets re intialzied it 
+git init
+$ ls -la
+total 37
+drwxr-xr-x 1 gopal 197121  0 Nov 10 12:56 ./
+drwxr-xr-x 1 gopal 197121  0 Nov 10 12:51 ../
+drwxr-xr-x 1 gopal 197121  0 Nov 10 12:56 .git/
+-rw-r--r-- 1 gopal 197121  0 Nov 10 12:52 DS_Store
+-rw-r--r-- 1 gopal 197121  0 Nov 10 12:52 auth
+-rw-r--r-- 1 gopal 197121 27 Nov 10 12:53 calc.py
+-rw-r--r-- 1 gopal 197121  0 Nov 10 12:52 secret
+##lets start with git workflow
+ 526  git add calc.py
+  527  git status
+  528  git commit -m "calc.py"
+  529  git status
+  530  git log
+####one commit will be created 
