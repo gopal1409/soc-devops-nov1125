@@ -17,3 +17,6 @@ sudo apt update
 sudo apt install jenkins
 ##verify the jenkins is installed or not 
 systemctl status jenkins
+##lkets install default java 
+apt install default-jdk
+systemctl restart jenkins
