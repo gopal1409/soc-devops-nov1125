@@ -1,0 +1,19 @@
+#once your ubuntu vm is created open powershell
+ssh gopal@12.12.12.12
+##chang the name of the user to your name
+sudo -i
+##this will make you an root user 
+#jenkins required java 
+sudo apt update
+sudo apt install fontconfig openjdk-21-jre
+java -version
+##lets install jenkins 
+#lets add the jenkins repo
+sudo wget -O /etc/apt/keyrings/jenkins-keyring.asc   https://pkg.jenkins.io/debian-stable/jenkins.io-2023.key
+##############jenkins signature key 
+ echo "deb [signed-by=/etc/apt/keyrings/jenkins-keyring.asc]"   https://pkg.jenkins.io/debian-stable binary/ | sudo tee   /etc/apt/sources.list.d/jenkins.list > /dev/null
+#now i can install jenkins
+sudo apt update
+sudo apt install jenkins
+##verify the jenkins is installed or not 
+systemctl status jenkins
