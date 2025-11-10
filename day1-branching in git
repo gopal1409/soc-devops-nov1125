@@ -1,0 +1,45 @@
+@lets check the brnaches
+  git branch 
+  #this will show the master or main branch
+  #the belwo command will show the name of the branch 
+   577  git branch
+  578  echo "we are starting with ecommerce application" > ecom.py
+  579  git add .
+  580  git commit -m "started my ecom app"
+  581  cat ecom.py
+  #to create a branch 
+  582  git branch feature
+  #git branch will show the pointer i am in which branch 
+  583  git branch
+  #to move to another branch you need to do checkout
+  584  git checkout feature
+  #this will agian show the pointer i am in which branch
+  585  git branch
+  ####we are in feature branch and there are single in the feature branch 
+   589  cat ecom.py
+  ##lets add the new ui in ecom.py file and do a commit 
+  590  echo "building a new ui for delivery app" >> ecom.py
+  591  cat ecom.py
+  592  git add .
+  593  git commit -m "adding a new ui"
+  #git log will show the headed is in which branch 
+  594  git log
+####lets move to master branch and see if the new line is added in master branch or not 
+  gopal@GOPA-DESK MINGW64 ~/projectsoc (feature)
+$ git branch
+* feature
+  master
+
+gopal@GOPA-DESK MINGW64 ~/projectsoc (feature)
+$ git checkout master
+Switched to branch 'master'
+
+gopal@GOPA-DESK MINGW64 ~/projectsoc (master)
+$ cat ecom.py
+we are starting with ecommerce application
+
+gopal@GOPA-DESK MINGW64 ~/projectsoc (m
+  #finally we will merge it 
+   600  git merge feature
+  601  cat ecom.py
+
