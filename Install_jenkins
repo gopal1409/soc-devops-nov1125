@@ -20,3 +20,4 @@ systemctl status jenkins
 ##lkets install default java 
 apt install default-jdk
 systemctl restart jenkins
+systemctl status jenkins
