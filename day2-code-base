@@ -20,3 +20,13 @@ systemctl restart jenkins
    38  git commit -m "started with maven application"
    39  git log
 #####then we need to generate the ssh public and private key and upload the pub key in github
+ssh-keygen -t rsa
+##you will get the key from this path 
+ cat /root/.ssh/id_rsa.pub
+#once we upload the private key in github
+#next we will create an private repo while create the repo in place of public make it private
+#copy the priavet repo git remote add orgin command and paste in the terminal
+##after that finally do 
+git push origin master
+#verify the code is upload in the github 
+
