@@ -1,0 +1,15 @@
+pipeline {
+    agent any //when you waant to run your pipeline in a different vm 
+    stages {
+        stage('code from scm') {
+            steps {
+                echo "we are geeting code from scm"
+            }
+        }
+        stage('build the code') {
+            steps {
+                echo "we are building the code"
+            }
+        }
+    }
+}
