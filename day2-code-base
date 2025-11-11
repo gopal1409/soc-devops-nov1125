@@ -1,0 +1,22 @@
+##inside our jenkins server we will install maven
+# we will also clone a project and upload the same in github. 
+#lets do ssh in the jenkins server using powershell replace the username and public ip with your jenkins server public ip
+ssh gopal@12.12.12.12
+  #once you do ssh 
+  sudo -i
+  #once we install maven
+  apt install maven
+##we need to restart the jenkins service 
+systemctl restart jenkins
+#lets clone an maven project 
+ 22  git clone https://github.com/gopal1409/spring-hello.git
+   23  cd spring-hello/
+  ###lets remove the refrence to my maven project which we have clone 
+   33  rm -rf .git
+   34  git config --global user.name "gopal"
+   35  git config --global user.email "gopal1409@gmail.com"
+   36  git init
+   37  git add .
+   38  git commit -m "started with maven application"
+   39  git log
+#####then we need to generate the ssh public and private key and upload the pub key in github
