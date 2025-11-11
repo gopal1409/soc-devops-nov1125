@@ -1,14 +1,14 @@
 pipeline {
-    agent any //when you waant to run your pipeline in a different vm 
+    agent any
     stages {
         stage('code from scm') {
             steps {
-                echo "we are geeting code from scm"
+                git credentialsId: 'git-key', url: 'git@github.com:gopal1409/soc-jenkins-integrationnov1125.git'
             }
         }
         stage('build the code') {
             steps {
-                echo "we are building the code"
+                sh 'mvn -B -DskipTests clean package'
             }
         }
     }
