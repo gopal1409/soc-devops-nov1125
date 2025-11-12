@@ -1,3 +1,4 @@
+sudo -i
 #lets check all the docker command line
   docker
   ###to gather more information about docker machine 
