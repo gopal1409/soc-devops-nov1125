@@ -16,3 +16,9 @@ sudo -i
    28  docker ps
    29  docker images
 ###here you will see multple contianer are running
+#lets try to undestand the concept of --detach
+#if you create a container withoguth detach it will run as foreground process --detach make the container run as deamon process
+ docker container run --publish 83:80 httpd
+####press ctrl c to close it
+###docker ps -a will show all the running and stopped container
+docker ps -a
