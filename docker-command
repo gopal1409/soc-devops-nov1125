@@ -72,6 +72,9 @@ exit
    80  docker rm db
 #volumes in container persistent volume to create custom volume -v 
 84  docker run -d -p 3306:3306 --name db -e MYSQL_ROOT_PASSWORD=admin123 -v db:/var/lib/mysql mysql
+mysql -u root -p
+exit
+exit
    85  docker ps
 #docker volume ls will give the path 
  86  docker volume ls
