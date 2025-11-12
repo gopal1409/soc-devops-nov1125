@@ -1,0 +1,7 @@
+#lets install docker from there official documentation
+  https://docs.docker.com/engine/install/ubuntu/
+##once you open this website 
+  complete the step 1 and 2 this will install docker
+  ###to verify the docker is installed 
+  root@docker-vm:~# docker --version
+Docker version 29.0.0, build 3d4129b
