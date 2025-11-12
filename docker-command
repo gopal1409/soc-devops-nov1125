@@ -48,4 +48,37 @@ docker ps -a
    64  docker ps
 #if you want to stop your container again
    65  docker stop mongo
+#lets create a mysql container and login inside the container
+ 72  docker run -d -p 3306:3306 --name db -e MYSQL_ROOT_PASSWORD=admin123 mysql
+##docker ps will show an mysql container is running
+   73  docker ps
+#login inside the container doocker exec -iy interatice termial bash 
+   74  docker exec -it db bash
+mysql -u root -p
+##put the password as admin123
+#lets see we can create a database 
+show databases;
+create database employee;
+#this will show the employee database is created or not 
+show databases;
+##lets exit mysql and exit the container
+exit
+exit
+################
+#how to delete a container
+  78  docker rm db
+#this will not delete the container to delete the same you need to stop it 
+   79  docker stop db
+   80  docker rm db
+#volumes in container persistent volume to create custom volume -v 
+84  docker run -d -p 3306:3306 --name db -e MYSQL_ROOT_PASSWORD=admin123 -v db:/var/lib/mysql mysql
+   85  docker ps
+#docker volume ls will give the path 
+ 86  docker volume ls
+#to know more about a container 
+   87  docker inspect db
+#if i do inspect in the volume you can see the db bath where it is storing your data
+   89  docker volume inspect db
+
+
 
