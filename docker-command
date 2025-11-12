@@ -2,3 +2,16 @@
   docker
   ###to gather more information about docker machine 
   docker info
+#lets create our first container
+ 18  docker container run --publish 80:80 --detach nginx
+   19  docker ps
+   20  curl localhost
+#lets see the that docker images will show the image in local
+ 22  docker images
+#next time when we create a container it will not download the image. 
+   23  docker container run --publish 81:80 --detach nginx
+#lets create an apache server 
+ 27  docker container run --publish 82:80 --detach httpd
+   28  docker ps
+   29  docker images
+###here you will see multple contianer are running
