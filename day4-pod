@@ -21,3 +21,34 @@ NAME    READY   STATUS    RESTARTS   AGE
 nginx   1/1     Running   0          39s
 ##to gather more information about this pod 
             38  kubectl describe pod nginx
+#pod explnation
+#kubectl apply -f pod.yml
+#any yaml run from top to bottom and left to right 
+#using this i am create an pod
+apiVersion: v1 #pod api has v1
+kind: Pod #we are creating a pod but the name pod is the name of the api
+metadata: #we need to provide a name to the pod 
+  name: nginx #using metadata and name we are giving the name nginx to the pod
+spec: #this is the specification of the pod
+  containers: #inside the pod we are creating a container
+  - name: nginx #name of the container inside the pod
+    image: nginx:1.14.2 #thisis the image of the contianer
+    ports: #when i run this container it will run on this port 
+    - containerPort: 80
+
+###lets create another pod with something called as dry run which will automatically generate the yaml file 
+#this will generate the manifest file
+ 44  kubectl run my-first-pod --image=nginx --port=80 --dry-run=client -o yaml
+#we save the manifest file in pod2.yml
+ 45  kubectl run my-first-pod --image=nginx --port=80 --dry-run=client -o yaml > pod2.yml
+   46  cat pod2.yml
+#apply the manifest
+   47  kubectl apply -f pod2.yml
+   48  kubectl get pod
+   49  kubectl describe pod my-first-pod
+##exercise for you
+#go to hub.docker.com and check the name of your image 
+#then generate the boiler plate or do the dry run like we have done earlier 
+save the file in pod3.yml
+do kubectl apply -f pod3.yml
+check that you hello app is running or not . 
