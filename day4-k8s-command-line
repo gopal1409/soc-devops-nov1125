@@ -1,0 +1,17 @@
+#to interact with your kubernetes cluster 
+   11  kubectl get nodes
+  #describe will give more information about your oibject
+   12  kubectl describe node k8smaster
+   #to check all the pod running in the namespace
+   14  kubectl get pod -A
+  #if you want to get more information about the pod -o wide
+   15  kubectl get pod -A -o wide
+#we need to see that allo my master component are running as container or not 
+  20  docker ps
+  #docker ps will not work as it is ee
+  #a new command line has come
+   21  crictl ps
+  ##if you want to check which container engine is running 
+   22  systemctl status containerd
+  ##press q 
+
