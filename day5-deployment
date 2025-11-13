@@ -10,3 +10,8 @@
    74  kubectl delete pod my-first-deployment-77bdf869fc-2cgpp
   #again if we do gebectl get pod a new pod will be created 
    75  kubectl get pod
+#lets delete the pod 
+ 82  kubectl get deploy
+#if you delete the deploy it will delete all the pod down the line
+   83  kubectl delete deploy my-first-deployment
+   84  kubectl get pod
