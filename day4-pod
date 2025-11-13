@@ -1,0 +1,23 @@
+#lete create our first pod 
+   nano pod.yml
+###inside this yaml file extension can be yml or yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx
+spec:
+  containers:
+  - name: nginx
+    image: nginx:1.14.2
+    ports:
+    - containerPort: 80
+###to save the file ctr x press y and enter
+    lets apply it the yaml file 
+      root@k8smaster:~# kubectl apply -f pod.yml
+pod/nginx created
+##once created lets see it is running or not 
+        root@k8smaster:~# kubectl get pod
+NAME    READY   STATUS    RESTARTS   AGE
+nginx   1/1     Running   0          39s
+##to gather more information about this pod 
+            38  kubectl describe pod nginx
