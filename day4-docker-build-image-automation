@@ -1,0 +1,5 @@
+#for maven based application you can use google job plugin
+  https://cloud.google.com/blog/products/application-development/introducing-jib-build-java-docker-images-better
+###########it will autmatically build the docker file and the image
+https://devcenter.heroku.com/
+#no need to create the docker file it will autmatically create it for your application and convert your app into an container based image
