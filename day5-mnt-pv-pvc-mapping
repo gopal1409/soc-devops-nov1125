@@ -1,0 +1,50 @@
+#first we will create an storage in the node machine
+  #k8s use an file ssytem called as Union file 
+  ##login to the node machine create a directory called as /mnt/data
+    3  mkdir /mnt/data
+    4  ls /mnt/data
+###ALL this activity need to be done in the master machine
+  root@k8smaster:~# nano pv.yml
+apiVersion: v1 
+kind: PersistentVolume
+metadata:
+  name: pv-volume #this is the name of the volume
+spec:
+  capacity:
+    storage: 5Gi  #size of the volume
+    
+  volumeMode: Filesystem
+  accessModes:
+    - ReadWriteOnce   #readwritemany #read 
+  hostPath:
+    path: "/mnt/data"
+    #to save the file Press Ctrl x press y and enter
+root@k8smaster:~# kubectl apply -f pv.yml
+persistentvolume/pv-volume created
+  #this will show that the volume is in avaiable 
+root@k8smaster:~# kubectl get pv
+NAME        CAPACITY   ACCESS MODES   RECLAIM POLICY   STATUS      CLAIM   STORAGECLASS   VOLUMEATTRIBUTESCLASS   REASON   AGE
+pv-volume   5Gi        RWO            Retain           Available                          <unset>                          5s
+root@k8smaster:~#
+
+###lets create the persistent volume claim but if you see the volume show avaialbe 
+  root@k8smaster:~# nano pvc.yml
+apiVersion: v1 
+kind: PersistentVolumeClaim
+metadata:
+  name: pv-claim
+spec:
+  resources: 
+    requests:
+      storage: 5Gi
+  volumeMode: Filesystem
+  accessModes:
+    - ReadWriteOnce
+
+root@k8smaster:~# kubectl apply -f pvc.yml
+persistentvolumeclaim/pv-claim created
+root@k8smaster:~# kubectl get pv
+NAME        CAPACITY   ACCESS MODES   RECLAIM POLICY   STATUS   CLAIM              STORAGECLASS   VOLUMEATTRIBUTESCLASS   REASON   AGE
+pv-volume   5Gi        RWO            Retain           Bound    default/pv-claim                  <unset>                          4m41s
+root@k8smaster:~#
+
